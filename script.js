@@ -21,3 +21,13 @@ function getHumanChoice() {
         alert('Unvalid input, try again.')
     }
 }
+
+function playRound(computerChoice, humanChoice) {
+    if ((computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissor") || (computerChoice === "scissor" && humanChoice === "rock")) {
+        console.log("Win");
+    } else if ((computerChoice === "rock" && humanChoice === "scissor") || (computerChoice === "paper" && humanChoice === "rock") || (computerChoice === "scissor" && humanChoice === "paper")) {
+        console.log("Lose");
+    } else {
+        console.log("Draw");
+    }
+}
