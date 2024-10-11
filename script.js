@@ -29,8 +29,10 @@ function playRound(computerChoice, humanChoice) {
     } else if ((computerChoice === "rock" && humanChoice === "scissor") || (computerChoice === "paper" && humanChoice === "rock") || (computerChoice === "scissor" && humanChoice === "paper")) {
         console.log(`\nYou lose! ${firstToUpperCase(computerChoice)} beats ${firstToUpperCase(humanChoice)}.`);
         return "lose";
-    } else {
+    } else if ((computerChoice === "rock" && humanChoice === "rock") || (computerChoice === "paper" && humanChoice === "paper") || (computerChoice === "scissor" && humanChoice === "scissor")) {
         console.log(`\nIt's a Draw!`);
+    } else {
+        console.log(`\nUnvalid Input!`);
     }
 }
 
