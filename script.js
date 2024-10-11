@@ -24,11 +24,13 @@ function getHumanChoice() {
 
 function playRound(computerChoice, humanChoice) {
     if ((computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissor") || (computerChoice === "scissor" && humanChoice === "rock")) {
-        console.log(`You win! ${firstToUpperCase(humanChoice)} beats ${firstToUpperCase(computerChoice)}.`);
+        console.log(`\nYou win! ${firstToUpperCase(humanChoice)} beats ${firstToUpperCase(computerChoice)}.`);
+        return "win";
     } else if ((computerChoice === "rock" && humanChoice === "scissor") || (computerChoice === "paper" && humanChoice === "rock") || (computerChoice === "scissor" && humanChoice === "paper")) {
-        console.log(`You lose! ${firstToUpperCase(computerChoice)} beats ${firstToUpperCase(humanChoice)}.`);
+        console.log(`\nYou lose! ${firstToUpperCase(computerChoice)} beats ${firstToUpperCase(humanChoice)}.`);
+        return "lose";
     } else {
-        console.log(`It's a Draw!`);
+        console.log(`\nIt's a Draw!`);
     }
 }
 
@@ -38,4 +40,30 @@ function firstToUpperCase(string) {
     return firstLetter.concat(lastLetters);
 }
 
-playRound(getComputerChoice(), getHumanChoice());
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    console.log("First to win 3 times wins the game!")
+    while(humanScore < 3 && computerScore < 3) {
+        let result = playRound(getComputerChoice(), getHumanChoice());
+        switch (result) {
+            case "win":
+                humanScore++;
+                break;
+            case "lose":
+                computerScore++;
+                break;
+            default:
+                break;
+        }
+        console.log(`Your Score:           ${humanScore}`);
+        console.log(`Computer's Score:     ${computerScore}`);
+    }
+    if (humanScore > computerScore) {
+        console.log('\nCongratulations, you won the game!');
+    } else {
+        console.log('\nToo bad, you lost the game!')
+    }
+}
+
+playGame();
