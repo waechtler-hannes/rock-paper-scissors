@@ -1,0 +1,1 @@
+This is my third Project, it is a console application, where you can play "Rock paper scissors" against the computer. The score will be counted until one reaches 3, then the game stops. You can find it here (open console to play the game): https://waechtler-hannes.github.io/rock-paper-scissors/
