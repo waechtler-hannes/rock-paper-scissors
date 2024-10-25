@@ -1,5 +1,20 @@
 let playerScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll("button");
+
+document.addEventListener("click", (e) => {
+    switch (e.target.textContent) {
+        case "Rock":
+            playRound(getComputerChoice(), "Rock");
+            break;
+        case "Paper":
+            playRound(getComputerChoice(), "Paper");
+            break;
+        case "Scissors":
+            playRound(getComputerChoice(), "Scissors");
+            break;
+    }
+});
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -48,23 +63,8 @@ function playRound(computerChoice, humanChoice) {
         playerScore = 0;
         computerScore = 0;
     } else if (computerScore === 5) {
-        endResult.textContent = 'You lose the game!';
+        endResult.textContent = 'You lost the game!';
         playerScore = 0;
         computerScore = 0;
     }
 }
-
-const buttons = document.querySelectorAll("button");
-document.addEventListener("click", (e) => {
-    switch (e.target.textContent) {
-        case "Rock":
-            playRound(getComputerChoice(), "Rock");
-            break;
-        case "Paper":
-            playRound(getComputerChoice(), "Paper");
-            break;
-        case "Scissors":
-            playRound(getComputerChoice(), "Scissors");
-            break;
-    }
-});
